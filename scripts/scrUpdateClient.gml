@@ -52,4 +52,10 @@ switch(header) {
         
         room_goto(rmGame);
     break;
+    case PKT_UPDATE_TURN:
+        for(i = 4; i < 8; i++) {
+            global.gameInfoClient[i] = buffer_read(buffer, buffer_s16);
+        }
+        global.turn = true;
+    break
 }

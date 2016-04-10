@@ -35,6 +35,7 @@ if(server_socket &lt; 0) {
 
 show_debug_message("Server created");
 buffer = buffer_create(1024, buffer_grow, 1);
+
 clients = ds_list_create();
 clientPlayers = ds_map_create();
 players = ds_map_create();
