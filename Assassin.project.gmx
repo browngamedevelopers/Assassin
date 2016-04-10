@@ -32,6 +32,7 @@
     <object>objects\objMenu</object>
     <object>objects\objServer</object>
     <object>objects\objClient</object>
+    <object>objects\objFootsteps</object>
     <object>objects\objNetworkPlayer</object>
     <object>objects\objWaiting</object>
     <object>objects\objTextbox</object>
