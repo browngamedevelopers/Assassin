@@ -12,10 +12,12 @@ switch(header) {
         }
         
         //Assassin pos x/y
-        //global.gameInfoClient[4] 
-        // global.gameInfoServer[5] = 0;
+        //show_message("created assasin knight");
+        //show_message(global.gameInfoClient[4]);
+        instance_create(global.gameInfoClient[4], global.gameInfoClient[5],objMessenger);
+        //sendinfoclient
         //Knight pos x/y
-        global.gameInfoServer[6] = 0; global.gameInfoServer[7] = 0;
+        instance_create(global.gameInfoClient[6], global.gameInfoClient[7],objKnight);
     break;
     case PKT_UPDATE_MAP:
         show_debug_message("Updated Grid");
@@ -47,6 +49,7 @@ switch(header) {
         global.turn = buffer_read(buffer, buffer_s16);
         global.messenger = global.turn;
         global.start = true;
+        
         room_goto(rmGame);
     break;
 }

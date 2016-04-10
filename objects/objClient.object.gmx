@@ -75,7 +75,7 @@ if(connection == 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrSendInfoClient(self);
+            <string>scrStepClient(self);
 </string>
           </argument>
         </arguments>

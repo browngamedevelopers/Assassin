@@ -8,11 +8,11 @@ switch(gridConfig) {
         global.gameInfoServer[0] = 13; global.gameInfoServer[1] = 15;
         //Starting upper left corner x/y
         //(13 * 56 (sprite width) - 1/2 *56 (sprite width) )/2
-        global.gameInfoServer[2] = 162; global.gameInfoServer[3] = 32;
+        global.gameInfoServer[2] = 162 ; global.gameInfoServer[3] = 32;
         //Assassin pos x/y
-        global.gameInfoServer[4] = 0; global.gameInfoServer[5] = 0;
+        global.gameInfoServer[4] = 162+ 28 + 6*56; global.gameInfoServer[5] = 32 + 3/4*13*64;
         //Knight pos x/y
-        global.gameInfoServer[6] = 0; global.gameInfoServer[7] = 0;
+        global.gameInfoServer[6] = 162 + 7*56; global.gameInfoServer[7] = 32 + 3/4*10*64;
         
         //Map tiles
         global.gridServer[0, 0] = 0; global.gridServer[0, 1] = 0; global.gridServer[0, 2] = 2; global.gridServer[0, 3] = 1; global.gridServer[0, 4] = 0; 

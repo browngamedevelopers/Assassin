@@ -6,6 +6,7 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\sprX</sprite>
     <sprite>sprites\sprTextbox</sprite>
     <sprite>sprites\sprButton</sprite>
     <sprite>sprites\sprMessenger</sprite>
@@ -43,7 +44,8 @@
     <room>rooms\rmWaiting</room>
     <room>rooms\rmGame</room>
   </rooms>
-  <constants number="10">
+  <constants number="11">
+    <constant name="KnightTurns">2</constant>
     <constant name="PKT_KEEP_ALIVE">0</constant>
     <constant name="PKT_PING">1</constant>
     <constant name="PKT_DISCONNECT">2</constant>
