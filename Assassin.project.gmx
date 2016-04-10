@@ -8,6 +8,8 @@
   <sprites name="sprites">
     <sprite>sprites\sprTextbox</sprite>
     <sprite>sprites\sprButton</sprite>
+    <sprite>sprites\sprMessenger</sprite>
+    <sprite>sprites\sprKnight</sprite>
     <sprite>sprites\sprTile</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -25,6 +27,8 @@
     <font>fonts\fntTextbox</font>
   </fonts>
   <objects name="objects">
+    <object>objects\objMessenger</object>
+    <object>objects\objKnight</object>
     <object>objects\objMenu</object>
     <object>objects\objServer</object>
     <object>objects\objClient</object>
