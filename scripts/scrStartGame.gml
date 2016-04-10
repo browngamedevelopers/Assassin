@@ -13,7 +13,7 @@ if(!global.gameStart && numplayers > 1) {
         buffer_write(server.buffer, buffer_u8, PKT_UPDATE);
         buffer_write(server.buffer, buffer_u8, PKT_UPDATE_READY);
             
-        if(i == messenger) {
+        if(i == playerStart) {
             buffer_write(server.buffer, buffer_s16, 1);
         } else {
             buffer_write(server.buffer, buffer_s16, 0);
