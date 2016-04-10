@@ -1,3 +1,4 @@
+server = argument0;
 gridConfig = 0;
 global.gameStart = false;
 
@@ -23,3 +24,4 @@ switch(gridConfig) {
         
       break;
 }
+server.alarm[0] = 60;

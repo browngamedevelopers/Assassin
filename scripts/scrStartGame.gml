@@ -12,4 +12,6 @@ if(!global.gameStart && numplayers > 1) {
         var socket = ds_list_find_value(server.clients, i);
         network_send_packet(socket, server.buffer, buffer_tell(server.buffer));
     }
+} else {
+    server.alarm[0] = 60;
 }
