@@ -29,6 +29,7 @@
 global.client = -1;
 global.serverip = "127.0.0.1";
 global.port = 8002;
+global.isServer = false;
 global.requestNames = ds_list_create();
 
 textBoxName = instance_create(room_width / 4, room_height / 4, objTextbox);
@@ -68,6 +69,7 @@ buttonConnect.text = "Connect";
             <kind>1</kind>
             <string>if(buttonHost.pressed) {
     buttonHost.pressed = false;
+    global.isServer = true;
     ds_list_add(global.requestNames, textBoxName.text);
     global.serverip = "127.0.0.1";
     global.server = instance_create(0, 0, objServer);

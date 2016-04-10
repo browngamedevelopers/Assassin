@@ -1,3 +1,4 @@
+server = argument0;
 gridConfig = 0;
 global.gameStart = false;
 
@@ -19,3 +20,4 @@ switch(gridConfig) {
         global.gridServer[3, 0] = 2; global.gridServer[3, 1] = 0; global.gridServer[3, 2] = 0; global.gridServer[3, 3] = 1; global.gridServer[3, 4] = 0; global.gridServer[3, 5] = 0;
     break;
 }
+server.alarm[0] = 60;

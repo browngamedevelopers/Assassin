@@ -17,7 +17,7 @@
     <script>scripts\scrInitClient.gml</script>
     <script>scripts\scrSendInfoServer.gml</script>
     <script>scripts\scrSendInfoClient.gml</script>
-    <script>scripts\scrStepServer.gml</script>
+    <script>scripts\scrStartGame.gml</script>
     <script>scripts\scrUpdateServer.gml</script>
     <script>scripts\scrUpdateClient.gml</script>
     <script>scripts\scrDraw.gml</script>
