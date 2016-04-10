@@ -24,4 +24,4 @@ switch(gridConfig) {
         
       break;
 }
-server.alarm[0] = 60;
+server.alarm[0] = 30;

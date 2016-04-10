@@ -38,6 +38,7 @@ switch(header) {
         }
     break;
     case PKT_UPDATE_READY:
+        global.turn = buffer_read(buffer, buffer_s16);
         global.start = true;
         room_goto(rmGame);
     break;
