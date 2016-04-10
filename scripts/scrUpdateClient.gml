@@ -10,6 +10,12 @@ switch(header) {
         for(i = 0; i < size; i++) {
             global.gameInfoClient[i] = buffer_read(buffer, buffer_s16);
         }
+        
+        //Assassin pos x/y
+        //global.gameInfoClient[4] 
+        // global.gameInfoServer[5] = 0;
+        //Knight pos x/y
+        global.gameInfoServer[6] = 0; global.gameInfoServer[7] = 0;
     break;
     case PKT_UPDATE_MAP:
         show_debug_message("Updated Grid");
