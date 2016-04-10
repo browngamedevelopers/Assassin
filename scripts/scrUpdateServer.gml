@@ -5,6 +5,7 @@ buffer = argument2;
 header = buffer_read(buffer, buffer_u8);
 switch(header) {
     case PKT_UPDATE_TURN:
+        show_message("server turn");
         var i;
         for(i = 4; i < 8; i++) {
             global.gameInfoServer[i] = buffer_read(buffer, buffer_s16);

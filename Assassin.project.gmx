@@ -6,6 +6,7 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\sprTileHighlight</sprite>
     <sprite>sprites\sprX</sprite>
     <sprite>sprites\sprTextbox</sprite>
     <sprite>sprites\sprButton</sprite>
@@ -28,6 +29,7 @@
     <font>fonts\fntTextbox</font>
   </fonts>
   <objects name="objects">
+    <object>objects\objHighlight</object>
     <object>objects\objMessenger</object>
     <object>objects\objKnight</object>
     <object>objects\objMenu</object>

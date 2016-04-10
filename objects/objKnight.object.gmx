@@ -49,10 +49,17 @@
           <argument>
             <kind>1</kind>
             <string>///End Turn
+
+with(objHighlight){
+    instance_destroy();
+}
+with(objTile){
+    canmove = false;
+}
 turnnum -= 1;
 if(turnnum == 0){
     turnnum = KnightTurns;
-    scrSendInfoClient(client);
+    scrSendInfoClient(objClient);
 }
 </string>
           </argument>

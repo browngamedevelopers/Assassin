@@ -49,13 +49,68 @@ switch(header) {
         global.turn = buffer_read(buffer, buffer_s16);
         global.messenger = global.turn;
         global.start = true;
-        
+        //Tell surrounding tiles
+        if(global.turn){
+            var myposx = 0;
+            var myposy = 0;
+            if(global.messenger){
+                myposx = global.gameInfoClient[4];
+                myposy = global.gameInfoClient[5];
+            }else {
+                myposx = global.gameInfoClient[6];
+                myposy = global.gameInfoClient[7];        
+            }
+            var tile;
+            tile[1] = instance_position(myposx - sprite_get_width(sprTile),myposy,objTile);
+            tile[2] = instance_position(myposx - sprite_get_width(sprTile)/2,myposy-3/4*sprite_get_height(sprTile),objTile);
+            tile[3] = instance_position(myposx + sprite_get_width(sprTile)/2,myposy-3/4*sprite_get_height(sprTile),objTile);
+            tile[4] = instance_position(myposx + sprite_get_width(sprTile),myposy,objTile);
+            tile[5] = instance_position(myposx + sprite_get_width(sprTile)/2,myposy+3/4*sprite_get_height(sprTile),objTile);
+            tile[6] = instance_position(myposx - sprite_get_width(sprTile)/2,myposy+3/4*sprite_get_height(sprTile),objTile);
+            for(i = 1; i < 7; i++) {
+                if(tile[i] != noone){
+                //show_debug_message("yep!");
+                    tile[i].canmove = true;
+                    instance_create(tile[i].x, tile[i].y, objHighlight);
+                }else {
+                //show_debug_message("nope!");    
+                }
+            }
+        }
         room_goto(rmGame);
     break;
     case PKT_UPDATE_TURN:
+        show_message("turn packet!");
         for(i = 4; i < 8; i++) {
             global.gameInfoClient[i] = buffer_read(buffer, buffer_s16);
         }
+        //Tell surrounding tiles
+        var myposx = 0;
+        var myposy = 0;
+        if(global.messenger){
+            myposx = global.gameInfoClient[4];
+            myposy = global.gameInfoClient[5];
+        }else {
+            myposx = global.gameInfoClient[6];
+            myposy = global.gameInfoClient[7];        
+        }
+        var tile;
+        tile[1] = instance_position(myposx - sprite_get_width(sprTile),myposy,objTile);
+        tile[2] = instance_position(myposx - sprite_get_width(sprTile)/2,myposy-3/4*sprite_get_height(sprTile),objTile);
+        tile[3] = instance_position(myposx + sprite_get_width(sprTile)/2,myposy-3/4*sprite_get_height(sprTile),objTile);
+        tile[4] = instance_position(myposx + sprite_get_width(sprTile),myposy,objTile);
+        tile[5] = instance_position(myposx + sprite_get_width(sprTile)/2,myposy+3/4*sprite_get_height(sprTile),objTile);
+        tile[6] = instance_position(myposx - sprite_get_width(sprTile)/2,myposy+3/4*sprite_get_height(sprTile),objTile);
+        for(i = 1; i < 7; i++) {
+            if(tile[i] != noone){
+                //show_debug_message("yep!");
+                    tile[i].canmove = true;
+                    instance_create(tile[i].x, tile[i].y, objHighlight);
+                }else {
+                //show_debug_message("nope!");    
+                }
+        }
+        
         global.turn = true;
     break
 }
