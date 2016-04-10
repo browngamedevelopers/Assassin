@@ -20,7 +20,6 @@
     <script>scripts\scrStartGame.gml</script>
     <script>scripts\scrUpdateServer.gml</script>
     <script>scripts\scrUpdateClient.gml</script>
-    <script>scripts\scrDraw.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntTextbox</font>
@@ -33,6 +32,7 @@
     <object>objects\objWaiting</object>
     <object>objects\objTextbox</object>
     <object>objects\objButton</object>
+    <object>objects\objTile</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>
