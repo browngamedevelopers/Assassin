@@ -75,8 +75,7 @@ if(connection == 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrStepClient(self);
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
