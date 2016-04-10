@@ -18,6 +18,8 @@ buffer_write(server.buffer, buffer_u8, PKT_UPDATE);
 buffer_write(server.buffer, buffer_u8, PKT_UPDATE_MAP);
 buffer_write(server.buffer, buffer_s16, global.gameInfoServer[0]);
 buffer_write(server.buffer, buffer_s16, global.gameInfoServer[1]);
+buffer_write(server.buffer, buffer_s16, global.gameInfoServer[2]);
+buffer_write(server.buffer, buffer_s16, global.gameInfoServer[3]);
 
 for(i = 0; i < global.gameInfoServer[0]; i++) {
     for(j = 0; j < global.gameInfoServer[1]; j++) {

@@ -15,12 +15,26 @@ switch(header) {
         show_debug_message("Updated Grid");
         row = buffer_read(buffer, buffer_s16);
         col = buffer_read(buffer, buffer_s16);
+        lx = buffer_read(buffer, buffer_s16);
+        ly = buffer_read(buffer, buffer_s16);
         
-        var i, j;
-        for(i = 0; i < row; i++) {
-            for(j = 0; j < col; j++) {
-                global.gridClient[i, j] = buffer_read(buffer, buffer_s16);
+        var i,j, xoff, yoff;
+
+        yoff = 0;
+        for(i = 0; i < col; i++) {
+            if((i mod 2) == 0) {
+                xoff = 0;
+            } else {
+                xoff = sprite_get_width(sprTile) / 2;
             }
+            
+            for(j = 0; j < row; j++) {
+                tile = instance_create(xoff + lx, yoff + ly, objTile);
+                tile.image_index = buffer_read(buffer, buffer_s16);
+                global.gridClient[i, j] = tile;
+                xoff += sprite_get_width(sprTile);
+            }
+            yoff += sprite_get_height(sprTile)*3/4;
         }
     break;
     case PKT_UPDATE_READY:
