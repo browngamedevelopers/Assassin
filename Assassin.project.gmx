@@ -13,6 +13,7 @@
     <sprite>sprites\sprMessenger</sprite>
     <sprite>sprites\sprKnight</sprite>
     <sprite>sprites\sprTile</sprite>
+    <sprite>sprites\sprFootsteps</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
