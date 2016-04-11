@@ -53,7 +53,7 @@
 turnnum -= 1;
 if(turnnum == 0){
     turnnum = KnightTurns;
-    scrSendInfoClient();
+    scrSendTurnSwitch();
 }
 </string>
           </argument>

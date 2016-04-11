@@ -8,6 +8,15 @@ switch(header) {
         buffer_seek(server.sendBuffer, buffer_seek_start, 0);
         buffer_write(server.sendBuffer, buffer_u8, PKT_UPDATE);
         buffer_write(server.sendBuffer, buffer_u8, PKT_UPDATE_TURN);
+        buffer_write(server.sendBuffer, buffer_u8, buffer_read(data, buffer_s16));
+        buffer_write(server.sendBuffer, buffer_u8, buffer_read(data, buffer_s16));
+        buffer_write(server.sendBuffer, buffer_u8, buffer_read(data, buffer_s16));
+        network_send_packet(socket, server.sendBuffer, buffer_tell(server.sendBuffer));;
+    break;
+    case PKT_UPDATE_TURNSWITCH:
+        buffer_seek(server.sendBuffer, buffer_seek_start, 0);
+        buffer_write(server.sendBuffer, buffer_u8, PKT_UPDATE);
+        buffer_write(server.sendBuffer, buffer_u8, PKT_UPDATE_TURNSWITCH);
     
         var i;
         for(i = 4; i < 8; i++) {

@@ -80,7 +80,18 @@ switch(header) {
         room_goto(rmGame);
     break;
     case PKT_UPDATE_TURN:
-        show_message("turn packet!");
+        animation = buffer_read(buffer, buffer_s16);
+        newx = buffer_read(buffer, buffer_s16);
+        newy = buffer_read(buffer, buffer_s16);
+        
+        if(global.messenger) {
+            with(objKnight) {
+                move_towards_point(newx, newy, 1);
+                //animate
+            }
+        }
+    break;
+    case PKT_UPDATE_TURNSWITCH:
         for(i = 4; i < 8; i++) {
             global.gameInfoClient[i] = buffer_read(buffer, buffer_s16);
         }
@@ -111,6 +122,9 @@ switch(header) {
                 }
         }
         
+        with(objFootsteps) {
+            event_user(0);
+        }
         global.turn = true;
     break
 }
