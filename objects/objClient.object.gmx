@@ -26,9 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>client_socket = network_create_socket(network_socket_tcp);
+network_set_config(network_config_use_non_blocking_socket, 1);
 connection = network_connect(client_socket, global.serverip, global.port);
 
 if(connection == 0) {
+    show_message("GO");
     show_debug_message("Connected to server: " + global.serverip);
     
     sendBuffer = buffer_create(1024, buffer_grow, 1);
@@ -50,8 +52,8 @@ if(connection == 0) {
     }
     scrInitClient();
 } else {
-    room_goto(rmMenu);
     instance_destroy();
+    room_goto(rmMenu);
 }
 </string>
           </argument>
@@ -75,7 +77,13 @@ if(connection == 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if(keyboard_check(ord('P'))) {
+    buffer_seek(client.sendBuffer, buffer_seek_start, 0);
+    buffer_write(client.sendBuffer, buffer_u8, PKT_PING);
+    buffer_write(client.sendBuffer, buffer_u32, current_time);
+    network_send_packet(client.client_socket, client.sendBuffer, buffer_tell(client.sendBuffer));
+}
+</string>
           </argument>
         </arguments>
       </action>
