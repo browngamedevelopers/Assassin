@@ -132,13 +132,10 @@ switch(header) {
             tile[7].canmove = true;
             instance_create(tile[7].x, tile[7].y, objHighlight);            
         }
-<<<<<<< HEAD
-=======
         
         with(objFootsteps) {
             event_user(0);
         }
->>>>>>> 17ca2352354551a40c33c6c302a4ecd1c2515f2f
         global.turn = true;
     break
 }
