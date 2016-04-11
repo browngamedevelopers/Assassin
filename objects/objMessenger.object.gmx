@@ -27,8 +27,14 @@
             <kind>1</kind>
             <string>///End Turn
 
-show_debug_message("messenger alarm");
-scrSendInfoClient(objClient);
+with(objHighlight){
+    instance_destroy();
+}
+with(objTile){
+    canmove = false;
+}
+
+scrSendInfoClient();
 </string>
           </argument>
         </arguments>
