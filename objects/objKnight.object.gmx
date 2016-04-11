@@ -59,7 +59,7 @@ with(objTile){
 turnnum -= 1;
 if(turnnum == 0){
     turnnum = KnightTurns;
-    scrSendInfoClient(objClient);
+    scrSendInfoClient();
 }
 </string>
           </argument>

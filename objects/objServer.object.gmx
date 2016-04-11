@@ -35,6 +35,7 @@ if(server_socket &lt; 0) {
 
 show_debug_message("Server created");
 buffer = buffer_create(1024, buffer_grow, 1);
+sendBuffer = buffer_create(1024, buffer_grow, 1);
 
 clients = ds_list_create();
 clientPlayers = ds_map_create();
@@ -176,7 +177,6 @@ if(server_socket == eventid) {
     var socket = ds_map_find_value(async_load, "id");
     buffer_seek(data, buffer_seek_start, 0);
     header = buffer_read(data, buffer_u8);
-    
     switch(header) {
         case PKT_PING:
             time = buffer_read(data, buffer_u32);
@@ -216,7 +216,7 @@ if(server_socket == eventid) {
         break;
         case PKT_UPDATE: 
             //Implementation dependant
-            scrUpdateServer(self, socket, buffer);
+            scrUpdateServer(self, socket, data);
         break;
     }
 }

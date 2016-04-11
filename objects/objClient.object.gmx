@@ -31,8 +31,8 @@ connection = network_connect(client_socket, global.serverip, global.port);
 if(connection == 0) {
     show_debug_message("Connected to server: " + global.serverip);
     
-    sendBuffer = buffer_create(1024, buffer_grow, 1);
     buffer = buffer_create(1024, buffer_grow, 1);
+    sendBuffer = buffer_create(1024, buffer_grow, 1);
     players = ds_map_create();
     localPlayerids = ds_list_create();
     
@@ -79,7 +79,7 @@ if(connection == 0) {
     buffer_seek(client.sendBuffer, buffer_seek_start, 0);
     buffer_write(client.sendBuffer, buffer_u8, PKT_PING);
     buffer_write(client.sendBuffer, buffer_u32, current_time);
-    network_send_packet(client.client_socket, client.sendBuffer, buffer_tell(client.sendBuffer));
+    network_send_packet(client_socket, client.sendBuffer, buffer_tell(client.sendBuffer));
 }
 </string>
           </argument>
