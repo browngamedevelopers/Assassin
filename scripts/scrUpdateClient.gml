@@ -38,7 +38,8 @@ switch(header) {
             
             for(j = 0; j < row; j++) {
                 tile = instance_create(xoff + lx, yoff + ly, objTile);
-                tile.image_index = buffer_read(buffer, buffer_s16);
+                var rand2 = irandom(2);
+                tile.image_index = 2*buffer_read(buffer, buffer_s16) + rand2;
                 global.gridClient[i, j] = tile;
                 xoff += sprite_get_width(sprTile);
             }
@@ -76,6 +77,11 @@ switch(header) {
                 //show_debug_message("nope!");    
                 }
             }
+            if(!global.messenger){
+                tile[7] = instance_position(myposx ,myposy,objTile);
+                tile[7].canmove = true;
+                instance_create(tile[7].x, tile[7].y, objHighlight);            
+            }
         }
         room_goto(rmGame);
     break;
@@ -109,8 +115,12 @@ switch(header) {
                 }else {
                 //show_debug_message("nope!");    
                 }
+        }        
+        if(!global.messenger){
+            tile[7] = instance_position(myposx ,myposy,objTile);
+            tile[7].canmove = true;
+            instance_create(tile[7].x, tile[7].y, objHighlight);            
         }
-        
         global.turn = true;
     break
 }

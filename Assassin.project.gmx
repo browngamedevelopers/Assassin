@@ -7,7 +7,6 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sprTileHighlight</sprite>
-    <sprite>sprites\sprX</sprite>
     <sprite>sprites\sprTextbox</sprite>
     <sprite>sprites\sprButton</sprite>
     <sprite>sprites\sprMessenger</sprite>
