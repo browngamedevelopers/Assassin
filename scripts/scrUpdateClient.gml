@@ -101,6 +101,12 @@ switch(header) {
         for(i = 4; i < 8; i++) {
             global.gameInfoClient[i] = buffer_read(buffer, buffer_s16);
         }
+        
+        objMessenger.x = global.gameInfoClient[4];
+        objMessenger.y = global.gameInfoClient[5];
+        objKnight.x = global.gameInfoClient[6];
+        objKnight.y = global.gameInfoClient[7];
+        
         //Tell surrounding tiles
         var myposx = 0;
         var myposy = 0;

@@ -32,6 +32,7 @@
   <objects name="objects">
     <object>objects\objHighlight</object>
     <object>objects\objMessenger</object>
+    <object>objects\objKnight</object>
     <object>objects\objMenu</object>
     <object>objects\objServer</object>
     <object>objects\objClient</object>
