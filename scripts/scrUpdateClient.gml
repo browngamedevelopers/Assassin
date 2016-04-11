@@ -38,10 +38,15 @@ switch(header) {
             
             for(j = 0; j < row; j++) {
                 tile = instance_create(xoff + lx, yoff + ly, objTile);
-                var rand2 = irandom(2);
-                tile.image_index = 2*buffer_read(buffer, buffer_s16) + rand2;
-                global.gridClient[i, j] = tile;
-                xoff += sprite_get_width(sprTile);
+                if(subimg > 7) {
+                   with(tile) { instance_destroy();}
+                }else {
+                    var rand2 = irandom(1);
+                    var subimg = buffer_read(buffer, buffer_s16);
+                    tile.image_index = 2*subimg + rand2;
+                    global.gridClient[i, j] = tile;
+                    xoff += sprite_get_width(sprTile);
+                }
             }
             yoff += sprite_get_height(sprTile)*3/4;
         }

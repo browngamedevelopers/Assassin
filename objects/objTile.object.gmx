@@ -109,6 +109,7 @@ canmove = false;
     if(!global.messenger) {
         //capture packet
         if(x == global.gameInfoClient[4] &amp;&amp; y == global.gameInfoClient[5]) {
+            show_message("You win!");
             //end game
         }else {
             objKnight.alarm[0] = 60;
