@@ -57,6 +57,7 @@ canmove = false;
     with(objTile){
         canmove = false;
     }
+    
     if(global.messenger){
         objMessenger.x = x;
         objMessenger.y = y;
