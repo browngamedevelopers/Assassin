@@ -50,6 +50,13 @@ canmove = false;
           <argument>
             <kind>1</kind>
             <string>if(canmove){
+
+    with(objHighlight){
+        instance_destroy();
+    }
+    with(objTile){
+        canmove = false;
+    }
     if(global.messenger){
         objMessenger.x = x;
         objMessenger.y = y;

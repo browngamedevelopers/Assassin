@@ -30,7 +30,7 @@ switch(header) {
 
         yoff = 0;
         for(i = 0; i < col; i++) {
-            if((i mod 2) == 0) {
+            if((i mod 2) != 0) {
                 xoff = 0;
             } else {
                 xoff = sprite_get_width(sprTile) / 2;

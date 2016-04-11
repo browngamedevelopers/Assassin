@@ -27,12 +27,6 @@
             <kind>1</kind>
             <string>///End Turn
 
-with(objHighlight){
-    instance_destroy();
-}
-with(objTile){
-    canmove = false;
-}
 show_debug_message("messenger alarm");
 scrSendInfoClient(objClient);
 </string>
