@@ -26,11 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>client_socket = network_create_socket(network_socket_tcp);
-network_set_config(network_config_use_non_blocking_socket, 1);
 connection = network_connect(client_socket, global.serverip, global.port);
 
 if(connection == 0) {
-    show_message("GO");
     show_debug_message("Connected to server: " + global.serverip);
     
     sendBuffer = buffer_create(1024, buffer_grow, 1);
