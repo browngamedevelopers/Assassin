@@ -20,7 +20,8 @@
     <script>scripts\scrInitServer.gml</script>
     <script>scripts\scrInitClient.gml</script>
     <script>scripts\scrSendInfoServer.gml</script>
-    <script>scripts\scrSendInfoClient.gml</script>
+    <script>scripts\scrSendTurn.gml</script>
+    <script>scripts\scrSendTurnSwitch.gml</script>
     <script>scripts\scrStartGame.gml</script>
     <script>scripts\scrUpdateServer.gml</script>
     <script>scripts\scrUpdateClient.gml</script>
@@ -31,7 +32,6 @@
   <objects name="objects">
     <object>objects\objHighlight</object>
     <object>objects\objMessenger</object>
-    <object>objects\objKnight</object>
     <object>objects\objMenu</object>
     <object>objects\objServer</object>
     <object>objects\objClient</object>
@@ -47,7 +47,7 @@
     <room>rooms\rmWaiting</room>
     <room>rooms\rmGame</room>
   </rooms>
-  <constants number="11">
+  <constants number="12">
     <constant name="KnightTurns">2</constant>
     <constant name="PKT_KEEP_ALIVE">0</constant>
     <constant name="PKT_PING">1</constant>
@@ -59,6 +59,7 @@
     <constant name="PKT_UPDATE_MAP">1</constant>
     <constant name="PKT_UPDATE_READY">2</constant>
     <constant name="PKT_UPDATE_TURN">3</constant>
+    <constant name="PKT_UPDATE_TURNSWITCH">4</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

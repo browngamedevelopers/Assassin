@@ -86,7 +86,18 @@ switch(header) {
         room_goto(rmGame);
     break;
     case PKT_UPDATE_TURN:
-        show_message("turn packet!");
+        animation = buffer_read(buffer, buffer_s16);
+        newx = buffer_read(buffer, buffer_s16);
+        newy = buffer_read(buffer, buffer_s16);
+        
+        if(global.messenger) {
+            with(objKnight) {
+                move_towards_point(newx, newy, 1);
+                //animate
+            }
+        }
+    break;
+    case PKT_UPDATE_TURNSWITCH:
         for(i = 4; i < 8; i++) {
             global.gameInfoClient[i] = buffer_read(buffer, buffer_s16);
         }
@@ -121,6 +132,13 @@ switch(header) {
             tile[7].canmove = true;
             instance_create(tile[7].x, tile[7].y, objHighlight);            
         }
+<<<<<<< HEAD
+=======
+        
+        with(objFootsteps) {
+            event_user(0);
+        }
+>>>>>>> 17ca2352354551a40c33c6c302a4ecd1c2515f2f
         global.turn = true;
     break
 }

@@ -34,7 +34,7 @@ with(objTile){
     canmove = false;
 }
 
-scrSendInfoClient();
+scrSendTurnSwitch();
 </string>
           </argument>
         </arguments>
