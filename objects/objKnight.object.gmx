@@ -3,7 +3,7 @@
   <spriteName>sprKnight</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-3</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>turnnum = KnightTurns;
+image_speed = .05;
 </string>
           </argument>
         </arguments>

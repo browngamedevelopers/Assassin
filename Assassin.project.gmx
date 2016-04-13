@@ -6,13 +6,15 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\sprNet</sprite>
+    <sprite>sprites\sprCastle</sprite>
     <sprite>sprites\sprTileHighlight</sprite>
     <sprite>sprites\sprTextbox</sprite>
     <sprite>sprites\sprButton</sprite>
-    <sprite>sprites\sprMessenger</sprite>
     <sprite>sprites\sprKnight</sprite>
+    <sprite>sprites\sprMessenger</sprite>
+    <sprite>sprites\sprFoosteps</sprite>
     <sprite>sprites\sprTile</sprite>
-    <sprite>sprites\sprFootsteps</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -30,6 +32,8 @@
     <font>fonts\fntTextbox</font>
   </fonts>
   <objects name="objects">
+    <object>objects\objNetAnimation</object>
+    <object>objects\objCastle</object>
     <object>objects\objHighlight</object>
     <object>objects\objMessenger</object>
     <object>objects\objKnight</object>

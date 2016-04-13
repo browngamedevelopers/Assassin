@@ -18,6 +18,7 @@ switch(header) {
         //sendinfoclient
         //Knight pos x/y
         instance_create(global.gameInfoClient[6], global.gameInfoClient[7],objKnight);
+        instance_create(room_width/2,107,objCastle);
     break;
     case PKT_UPDATE_MAP:
         show_debug_message("Updated Grid");
@@ -39,7 +40,7 @@ switch(header) {
             for(j = 0; j < row; j++) {
                 tile = instance_create(xoff + lx, yoff + ly, objTile);
                 var subimg = buffer_read(buffer, buffer_s16);
-                if(subimg > 7) {
+                if(subimg == 4) {
                    with(tile) { instance_destroy();}
                 }else {
                     var rand2 = irandom(1);
@@ -48,7 +49,8 @@ switch(header) {
                     xoff += sprite_get_width(sprTile);
                 }
             }
-            yoff += sprite_get_height(sprTile)*3/4;
+            //yoff += sprite_get_height(sprTile)*3/4;
+            yoff += 64*3/4; //since they have tops, they aren't at the right height, this is the current tile height
         }
     break;
     case PKT_UPDATE_READY:
