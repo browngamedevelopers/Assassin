@@ -3,14 +3,14 @@
   <type>0</type>
   <xorig>28</xorig>
   <yorigin>32</yorigin>
-  <colkind>0</colkind>
+  <colkind>1</colkind>
   <coltolerance>0</coltolerance>
-  <sepmasks>-1</sepmasks>
+  <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
   <bbox_right>55</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>68</bbox_bottom>
+  <bbox_bottom>63</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -18,7 +18,7 @@
   </TextureGroups>
   <For3D>0</For3D>
   <width>56</width>
-  <height>69</height>
+  <height>64</height>
   <frames>
     <frame index="0">images\sprTile_0.png</frame>
     <frame index="1">images\sprTile_1.png</frame>

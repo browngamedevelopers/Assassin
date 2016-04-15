@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>image_speed = 0;
 canmove = false;
+depth = -y + room_height;
 </string>
           </argument>
         </arguments>
@@ -108,7 +109,11 @@ canmove = false;
     
     if(!global.messenger) {
         //capture packet
+        instance_create(x,y,objNetAnimation);
         if(x == global.gameInfoClient[4] &amp;&amp; y == global.gameInfoClient[5]) {
+            with(objMessenger){
+                victory = true;
+            }
             show_message("You win!");
             //end game
         }else {
