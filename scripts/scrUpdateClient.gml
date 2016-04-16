@@ -53,6 +53,8 @@ switch(header) {
         global.messenger = global.turn;
         global.start = true;
         
+        instance_create(objMessenger.x, objMessenger.y, objFootprint);
+        
         //Tell surrounding tiles
         if(global.turn){
             var myposx = 0;
@@ -93,11 +95,21 @@ switch(header) {
         objMessenger.y = buffer_read(buffer, buffer_s16);
         objKnight.x = buffer_read(buffer, buffer_s16);
         objKnight.y = buffer_read(buffer, buffer_s16);
-        animation = buffer_read(buffer, buffer_s16);
+        event = buffer_read(buffer, buffer_s16);
+        
+        with(objFootprint) {
+            visible = false;
+            event_user(0);
+        }
         
         if(global.messenger) {
             with(objKnight) {
                 //animate
+            }
+        } else {
+            tile = instance_position(objMessenger.x, objMessenger.y, objTile);
+            if(tile.image_index != 2 && tile.image_index != 3) {
+                instance_create(objMessenger.x, objMessenger.y, objFootprint);
             }
         }
     break;
@@ -134,9 +146,6 @@ switch(header) {
             instance_create(tile[7].x, tile[7].y, objHighlight);            
         }
         
-        with(objFootprint) {
-            event_user(0);
-        }
         global.turn = true;
     break
 }

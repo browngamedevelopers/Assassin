@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>0</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var footstepsDuration = 3;
+            <string>footstepDuration = 3;
 visible = false;
 </string>
           </argument>
@@ -49,10 +49,10 @@ visible = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>footstepDuration--;
-if (footstepsDuration &lt; 0) {
+            <string>if (footstepDuration == 0) {
     instance_destroy();
 }
+footstepDuration--;
 </string>
           </argument>
         </arguments>
