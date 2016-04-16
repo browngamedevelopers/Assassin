@@ -60,8 +60,9 @@ with(objHighlight){
 with(objTile){
     canmove = false;
 }
-
-scrSendTurn(0);
+with(objFootprint) {
+    event_user(0);
+}
 scrSendTurnSwitch();
 </string>
           </argument>

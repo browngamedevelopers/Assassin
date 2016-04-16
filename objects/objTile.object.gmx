@@ -68,8 +68,9 @@ depth = -y + room_height;
         show_message("You win!");
         //end game
     }else {
-        objKnight.alarm[0] = 30;
+        objKnight.alarm[0] = 60;
     }
+    scrSendTurn(2);
 }
 </string>
           </argument>
@@ -94,7 +95,6 @@ depth = -y + room_height;
           <argument>
             <kind>1</kind>
             <string>if(canmove){
-    show_debug_message(image_index);
     with(objHighlight){
         instance_destroy();
     }
@@ -104,12 +104,13 @@ depth = -y + room_height;
     
     if(global.messenger){
         //messenger move packet
+        objMessenger.x = x;
+        objMessenger.y = y;
         if(image_index != 2 &amp;&amp; image_index != 3) {
             instance_create(objMessenger.x, objMessenger.y, objFootprint);
         }
-        objMessenger.x = x;
-        objMessenger.y = y;
-        objMessenger.alarm[0] = 30;
+        objMessenger.alarm[0] = 60;
+        scrSendTurn(0);
     }else {
         if(x == objKnight.x &amp;&amp; y == objKnight.y){ 
             //footprint packet
@@ -125,17 +126,18 @@ depth = -y + room_height;
             var i;
             for(i = 0; i &lt; 7; i++) {
                 if(footprint[i] != noone) {
-                    show_debug_message("working");
                     footprint[i].visible = true;
                 }
             }
             
-            objKnight.alarm[0] = 30;
+            objKnight.alarm[0] = 60;
+            scrSendTurn(1);
         } else {
             //knight move packet
             objKnight.x = x;
             objKnight.y = y;
-            objKnight.alarm[0] = 30;
+            objKnight.alarm[0] = 60;
+            scrSendTurn(0);
         }
     }
     

@@ -54,34 +54,37 @@ movey = y;
             <kind>1</kind>
             <string>///End Turn
 
+with(objFootprint) {
+    visible = false;
+    event_user(0);
+}    
+
 turnnum -= 1;
 if(turnnum == 0){
     turnnum = KnightTurns;
-    scrSendTurn(0);
     scrSendTurnSwitch();
 }else {
     //Tell surrounding tiles
-        if(global.turn){
-            var tile;
-            tile[1] = instance_position(x - sprite_get_width(sprTile),y,objTile);
-            tile[2] = instance_position(x - sprite_get_width(sprTile)/2,y-3/4*sprite_get_height(sprTile),objTile);
-            tile[3] = instance_position(x + sprite_get_width(sprTile)/2,y-3/4*sprite_get_height(sprTile),objTile);
-            tile[4] = instance_position(x + sprite_get_width(sprTile),y,objTile);
-            tile[5] = instance_position(x + sprite_get_width(sprTile)/2,y+3/4*sprite_get_height(sprTile),objTile);
-            tile[6] = instance_position(x - sprite_get_width(sprTile)/2,y+3/4*sprite_get_height(sprTile),objTile);
-            tile[7] = instance_position(x, y, objTile);
-            
-            for(i = 1; i &lt; 8; i++) {
-                if(tile[i] != noone){
-                //show_debug_message("yep!");
-                    tile[i].canmove = true;
-                    instance_create(tile[i].x, tile[i].y, objHighlight);
-                }else {
-                //show_debug_message("nope!");    
-                }
+    if(global.turn){
+        var tile;
+        tile[1] = instance_position(x - sprite_get_width(sprTile),y,objTile);
+        tile[2] = instance_position(x - sprite_get_width(sprTile)/2,y-3/4*sprite_get_height(sprTile),objTile);
+        tile[3] = instance_position(x + sprite_get_width(sprTile)/2,y-3/4*sprite_get_height(sprTile),objTile);
+        tile[4] = instance_position(x + sprite_get_width(sprTile),y,objTile);
+        tile[5] = instance_position(x + sprite_get_width(sprTile)/2,y+3/4*sprite_get_height(sprTile),objTile);
+        tile[6] = instance_position(x - sprite_get_width(sprTile)/2,y+3/4*sprite_get_height(sprTile),objTile);
+        tile[7] = instance_position(x, y, objTile);
+        
+        for(i = 1; i &lt; 8; i++) {
+            if(tile[i] != noone){
+            //show_debug_message("yep!");
+                tile[i].canmove = true;
+                instance_create(tile[i].x, tile[i].y, objHighlight);
+            }else {
+            //show_debug_message("nope!");    
             }
-            scrSendTurn(0);
         }
+    }
 }
 </string>
           </argument>

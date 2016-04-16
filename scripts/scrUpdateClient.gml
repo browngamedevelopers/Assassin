@@ -97,16 +97,39 @@ switch(header) {
         objKnight.y = buffer_read(buffer, buffer_s16);
         event = buffer_read(buffer, buffer_s16);
         
-        with(objFootprint) {
-            visible = false;
-            event_user(0);
-        }
-        
         if(global.messenger) {
-            with(objKnight) {
-                //animate
+            if(event == 0) {
+                //Move
+            } else if(event == 1) {
+                //Footprints
+                var footprint;
+                footprint[0] = instance_position(objKnight.x, objKnight.y, objFootprint);
+                footprint[1] = instance_position(objKnight.x - sprite_get_width(sprTile),objKnight.y,objFootprint);
+                footprint[2] = instance_position(objKnight.x - sprite_get_width(sprTile)/2,objKnight.y-3/4*sprite_get_height(sprTile),objFootprint);
+                footprint[3] = instance_position(objKnight.x + sprite_get_width(sprTile)/2,objKnight.y-3/4*sprite_get_height(sprTile),objFootprint);
+                footprint[4] = instance_position(objKnight.x + sprite_get_width(sprTile),objKnight.y,objFootprint);
+                footprint[5] = instance_position(objKnight.x + sprite_get_width(sprTile)/2,objKnight.y+3/4*sprite_get_height(sprTile),objFootprint);
+                footprint[6] = instance_position(objKnight.x - sprite_get_width(sprTile)/2,objKnight.y+3/4*sprite_get_height(sprTile),objFootprint);
+                
+                var i;
+                for(i = 0; i < 7; i++) {
+                    if(footprint[i] != noone) {
+                        footprint[i].visible = true;
+                    }
+                }
+                
+                with(objFootprint) {
+                    event_user(0);
+                }
+            } else if(event == 2){
+                //Net
+            } else {
+                //Undefined
             }
         } else {
+            with(objFootprint) {
+                event_user(0);
+            }
             tile = instance_position(objMessenger.x, objMessenger.y, objTile);
             if(tile.image_index != 2 && tile.image_index != 3) {
                 instance_create(objMessenger.x, objMessenger.y, objFootprint);
