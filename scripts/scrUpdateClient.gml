@@ -5,20 +5,15 @@ header = buffer_read(buffer, buffer_u8);
 switch(header) {
     case PKT_UPDATE_INFO:
         show_debug_message("Updated Info");
-        size = buffer_read(buffer, buffer_s16);
         
-        for(i = 0; i < size; i++) {
-            global.gameInfoClient[i] = buffer_read(buffer, buffer_s16);
-        }
+        messengerx = buffer_read(buffer, buffer_s16);
+        messengery = buffer_read(buffer, buffer_s16);
+        knightx = buffer_read(buffer, buffer_s16);
+        knighty = buffer_read(buffer, buffer_s16);
         
-        //Assassin pos x/y
-        //show_message("created assasin knight");
-        //show_message(global.gameInfoClient[4]);
-        instance_create(global.gameInfoClient[4], global.gameInfoClient[5],objMessenger);
-        //sendinfoclient
-        //Knight pos x/y
-        instance_create(global.gameInfoClient[6], global.gameInfoClient[7],objKnight);
-        instance_create(room_width/2,107,objCastle);
+        instance_create(messengerx, messengery, objMessenger);
+        instance_create(knightx, knighty, objKnight);
+        instance_create(room_width/2, 107, objCastle);
     break;
     case PKT_UPDATE_MAP:
         show_debug_message("Updated Grid");
@@ -57,16 +52,17 @@ switch(header) {
         global.turn = buffer_read(buffer, buffer_s16);
         global.messenger = global.turn;
         global.start = true;
+        
         //Tell surrounding tiles
         if(global.turn){
             var myposx = 0;
             var myposy = 0;
             if(global.messenger){
-                myposx = global.gameInfoClient[4];
-                myposy = global.gameInfoClient[5];
+                myposx = objMessenger.x;
+                myposy = objMessenger.y;
             }else {
-                myposx = global.gameInfoClient[6];
-                myposy = global.gameInfoClient[7];        
+                myposx = objKnight.x;
+                myposy = objKnight.y;
             }
             var tile;
             tile[1] = instance_position(myposx - sprite_get_width(sprTile),myposy,objTile);
@@ -85,7 +81,7 @@ switch(header) {
                 }
             }
             if(!global.messenger){
-                tile[7] = instance_position(myposx ,myposy,objTile);
+                tile[7] = instance_position(myposx, myposy, objTile);
                 tile[7].canmove = true;
                 instance_create(tile[7].x, tile[7].y, objHighlight);            
             }
@@ -93,36 +89,28 @@ switch(header) {
         room_goto(rmGame);
     break;
     case PKT_UPDATE_TURN:
+        objMessenger.x = buffer_read(buffer, buffer_s16);
+        objMessenger.y = buffer_read(buffer, buffer_s16);
+        objKnight.x = buffer_read(buffer, buffer_s16);
+        objKnight.y = buffer_read(buffer, buffer_s16);
         animation = buffer_read(buffer, buffer_s16);
-        newx = buffer_read(buffer, buffer_s16);
-        newy = buffer_read(buffer, buffer_s16);
         
         if(global.messenger) {
             with(objKnight) {
-                move_towards_point(newx, newy, 1);
                 //animate
             }
         }
     break;
     case PKT_UPDATE_TURNSWITCH:
-        for(i = 4; i < 8; i++) {
-            global.gameInfoClient[i] = buffer_read(buffer, buffer_s16);
-        }
-        
-        objMessenger.x = global.gameInfoClient[4];
-        objMessenger.y = global.gameInfoClient[5];
-        objKnight.x = global.gameInfoClient[6];
-        objKnight.y = global.gameInfoClient[7];
-        
         //Tell surrounding tiles
         var myposx = 0;
         var myposy = 0;
         if(global.messenger){
-            myposx = global.gameInfoClient[4];
-            myposy = global.gameInfoClient[5];
+            myposx = objMessenger.x;
+            myposy = objMessenger.y;
         }else {
-            myposx = global.gameInfoClient[6];
-            myposy = global.gameInfoClient[7];        
+            myposx = objKnight.x;
+            myposy = objKnight.y;        
         }
         var tile;
         tile[1] = instance_position(myposx - sprite_get_width(sprTile),myposy,objTile);
@@ -141,12 +129,12 @@ switch(header) {
                 }
         }        
         if(!global.messenger){
-            tile[7] = instance_position(myposx ,myposy,objTile);
+            tile[7] = instance_position(myposx, myposy, objTile);
             tile[7].canmove = true;
             instance_create(tile[7].x, tile[7].y, objHighlight);            
         }
         
-        with(objFootsteps) {
+        with(objFootprint) {
             event_user(0);
         }
         global.turn = true;

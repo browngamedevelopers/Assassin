@@ -4,10 +4,9 @@ socket = argument1;
 buffer_seek(server.buffer, buffer_seek_start, 0);
 buffer_write(server.buffer, buffer_u8, PKT_UPDATE);
 buffer_write(server.buffer, buffer_u8, PKT_UPDATE_INFO);
-buffer_write(server.buffer, buffer_s16, array_length_1d(global.gameInfoServer));
 
 var i, j;
-for(i = 0; i < array_length_1d(global.gameInfoServer); i++) {
+for(i = 4; i < 8; i++) {
     buffer_write(server.buffer, buffer_s16, global.gameInfoServer[i]);
 }
 network_send_packet(socket, server.buffer, buffer_tell(server.buffer));

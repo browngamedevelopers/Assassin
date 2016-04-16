@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>turnnum = KnightTurns;
 image_speed = .05;
+
+movex = x;
+movey = y;
 </string>
           </argument>
         </arguments>
@@ -54,6 +57,7 @@ image_speed = .05;
 turnnum -= 1;
 if(turnnum == 0){
     turnnum = KnightTurns;
+    scrSendTurn(0);
     scrSendTurnSwitch();
 }else {
     //Tell surrounding tiles
@@ -65,7 +69,7 @@ if(turnnum == 0){
             tile[4] = instance_position(x + sprite_get_width(sprTile),y,objTile);
             tile[5] = instance_position(x + sprite_get_width(sprTile)/2,y+3/4*sprite_get_height(sprTile),objTile);
             tile[6] = instance_position(x - sprite_get_width(sprTile)/2,y+3/4*sprite_get_height(sprTile),objTile);
-            tile[7] = instance_position(x ,y,objTile);
+            tile[7] = instance_position(x, y, objTile);
             
             for(i = 1; i &lt; 8; i++) {
                 if(tile[i] != noone){
@@ -76,6 +80,7 @@ if(turnnum == 0){
                 //show_debug_message("nope!");    
                 }
             }
+            scrSendTurn(0);
         }
 }
 </string>

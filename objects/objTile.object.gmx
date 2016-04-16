@@ -33,6 +33,49 @@ depth = -y + room_height;
         </arguments>
       </action>
     </event>
+    <event eventtype="6" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(canmove &amp;&amp; !global.messenger){
+
+    with(objHighlight){
+        instance_destroy();
+    }
+    with(objTile){
+        canmove = false;
+    }
+    
+    //capture packet
+    instance_create(x,y,objNetAnimation);
+    if(x == global.gameInfoClient[4] &amp;&amp; y == global.gameInfoClient[5]) {
+        with(objMessenger){
+            victory = true;
+        }
+        show_message("You win!");
+        //end game
+    }else {
+        objKnight.alarm[0] = 30;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="7">
       <action>
         <libid>1</libid>
@@ -63,61 +106,19 @@ depth = -y + room_height;
         //messenger move packet
         objMessenger.x = x;
         objMessenger.y = y;
-        objMessenger.alarm[0] = 60;
+        objMessenger.alarm[0] = 30;
     }else {
         if(x == objKnight.x &amp;&amp; y == objKnight.y){ 
             //footprint packet
+            with(objFootprint) {
+                visible = true;
+            }
+            objKnight.alarm[0] = 30;
         } else {
             //knight move packet
             objKnight.x = x;
             objKnight.y = y;
-            objKnight.alarm[0] = 60;
-        }
-    }
-    
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(canmove){
-
-    with(objHighlight){
-        instance_destroy();
-    }
-    with(objTile){
-        canmove = false;
-    }
-    
-    if(!global.messenger) {
-        //capture packet
-        instance_create(x,y,objNetAnimation);
-        if(x == global.gameInfoClient[4] &amp;&amp; y == global.gameInfoClient[5]) {
-            with(objMessenger){
-                victory = true;
-            }
-            show_message("You win!");
-            //end game
-        }else {
-            objKnight.alarm[0] = 60;
+            objKnight.alarm[0] = 30;
         }
     }
     

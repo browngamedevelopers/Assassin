@@ -26,34 +26,37 @@
     <script>scripts\scrSendTurnSwitch.gml</script>
     <script>scripts\scrStartGame.gml</script>
     <script>scripts\scrUpdateClient.gml</script>
-    <script>scripts\scrUpdateClient.gml</script>
+    <script>scripts\scrUpdateServer.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntTextbox</font>
   </fonts>
   <objects name="objects">
-    <object>objects\objNetAnimation</object>
-    <object>objects\objCastle</object>
+    <objects name="Networking">
+      <object>objects\objServer</object>
+      <object>objects\objClient</object>
+      <object>objects\objNetworkPlayer</object>
+    </objects>
+    <objects name="Menu">
+      <object>objects\objMenu</object>
+      <object>objects\objWaiting</object>
+      <object>objects\objTextbox</object>
+      <object>objects\objButton</object>
+    </objects>
+    <object>objects\objTile</object>
     <object>objects\objHighlight</object>
     <object>objects\objMessenger</object>
     <object>objects\objKnight</object>
-    <object>objects\objMenu</object>
-    <object>objects\objServer</object>
-    <object>objects\objClient</object>
-    <object>objects\objFootsteps</object>
-    <object>objects\objNetworkPlayer</object>
-    <object>objects\objWaiting</object>
-    <object>objects\objTextbox</object>
-    <object>objects\objButton</object>
-    <object>objects\objTile</object>
+    <object>objects\objFootprint</object>
+    <object>objects\objNetAnimation</object>
+    <object>objects\objCastle</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>
     <room>rooms\rmWaiting</room>
     <room>rooms\rmGame</room>
   </rooms>
-  <constants number="12">
-    <constant name="KnightTurns">2</constant>
+  <constants number="13">
     <constant name="PKT_KEEP_ALIVE">0</constant>
     <constant name="PKT_PING">1</constant>
     <constant name="PKT_DISCONNECT">2</constant>
@@ -65,6 +68,8 @@
     <constant name="PKT_UPDATE_READY">2</constant>
     <constant name="PKT_UPDATE_TURN">3</constant>
     <constant name="PKT_UPDATE_TURNSWITCH">4</constant>
+    <constant name="PLAYER_SPEED">5</constant>
+    <constant name="KnightTurns">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
