@@ -4,9 +4,8 @@ numplayers = ds_map_size(server.players);
 if(!global.gameStart && numplayers > 1) {
     global.gameStart = true;
     var i;
-    playerStart = irandom(numplayers);
-    show_debug_message(playerStart);
-    show_debug_message(numplayers);
+    playerStart = irandom(numplayers - 1);
+    
     for(i = 0; i < ds_list_size(server.clients); i++) {
         var socket = ds_list_find_value(server.clients, i);
         

@@ -47,6 +47,7 @@
     <object>objects\objHighlight</object>
     <object>objects\objMessenger</object>
     <object>objects\objKnight</object>
+    <object>objects\objTurnCounter</object>
     <object>objects\objFootprint</object>
     <object>objects\objNetAnimation</object>
     <object>objects\objCastle</object>
@@ -56,20 +57,24 @@
     <room>rooms\rmWaiting</room>
     <room>rooms\rmGame</room>
   </rooms>
-  <constants number="13">
+  <constants number="17">
     <constant name="PKT_KEEP_ALIVE">0</constant>
     <constant name="PKT_PING">1</constant>
     <constant name="PKT_DISCONNECT">2</constant>
     <constant name="PKT_PLAYER_REQUEST">3</constant>
     <constant name="PKT_PLAYER_REQUEST_DENY">4</constant>
-    <constant name="PKT_UPDATE">5</constant>
+    <constant name="PKT_PLAYER_ADD">5</constant>
+    <constant name="PKT_UPDATE">6</constant>
     <constant name="PKT_UPDATE_INFO">0</constant>
     <constant name="PKT_UPDATE_MAP">1</constant>
     <constant name="PKT_UPDATE_READY">2</constant>
     <constant name="PKT_UPDATE_TURN">3</constant>
     <constant name="PKT_UPDATE_TURNSWITCH">4</constant>
+    <constant name="TURN_LIMIT">30</constant>
     <constant name="PLAYER_SPEED">5</constant>
-    <constant name="KnightTurns">2</constant>
+    <constant name="INIT_MESSENGER_TURNS">3</constant>
+    <constant name="MESSENGER_TURNS">1</constant>
+    <constant name="KNIGHT_TURNS">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

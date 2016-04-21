@@ -130,6 +130,15 @@ if(client_socket == eventid){
             info = buffer_read(data, buffer_string);
             show_debug_message(info);
         break;
+        case PKT_PLAYER_ADD:
+            pid = buffer_read(data, buffer_s16);
+            playerName = buffer_read(data, buffer_string);
+            player = instance_create(0, 0, objNetworkPlayer);
+            player.pid = pid;
+            player.name = playerName;
+            ds_map_add(players, pid, player);
+            show_debug_message("Player: " + playerName + " connected");
+        break;
         case PKT_PING:
             time = buffer_read(data, buffer_u32);
             ping = current_time - time;

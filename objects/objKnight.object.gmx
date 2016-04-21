@@ -25,11 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>turnnum = KnightTurns;
+            <string>turnnum = KNIGHT_TURNS;
 image_speed = .05;
 
-movex = x;
-movey = y;
+name = "";
+if(!global.messenger) {
+    var i;
+    for(i = 0; i &lt; ds_map_size(global.client.players); i++) {
+        p = ds_map_find_value(global.client.players, i);
+        if(p != ds_map_find_value(global.client.players, ds_list_find_value(global.client.localPlayerids, 0))) {
+            //name = p.name;
+        }
+    }
+} else {
+    name = ds_map_find_value(global.client.players, ds_list_find_value(global.client.localPlayerids, 0)).name;
+}
 </string>
           </argument>
         </arguments>
@@ -61,7 +71,7 @@ with(objFootprint) {
 
 turnnum -= 1;
 if(turnnum == 0){
-    turnnum = KnightTurns;
+    turnnum = KNIGHT_TURNS;
     scrSendTurnSwitch();
 }else {
     //Tell surrounding tiles
@@ -110,6 +120,7 @@ if(turnnum == 0){
             <kind>1</kind>
             <string>if(global.start) {
     draw_self();
+    draw_text(x, y - sprite_width / 2 - 10, name);
 }
 </string>
           </argument>

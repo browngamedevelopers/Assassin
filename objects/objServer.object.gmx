@@ -205,6 +205,20 @@ if(server_socket == eventid) {
                 buffer_write(buffer, buffer_s16, pid);
                 buffer_write(buffer, buffer_string, playerName);
                 network_send_packet(socket, buffer, buffer_tell(buffer));
+                
+                buffer_seek(buffer, buffer_seek_start, 0);
+                buffer_write(buffer, buffer_u8, PKT_PLAYER_ADD);
+                buffer_write(buffer, buffer_s16, pid);
+                buffer_write(buffer, buffer_string, playerName);
+                
+                var i;
+                for(i = 0; i &lt; ds_list_size(clients); i++) {
+                    var sock = ds_map_find_value(clients, i);
+                    if(sock != socket) {
+                        network_send_packet(sock, buffer, buffer_tell(buffer));
+                    }
+                }
+                
                 scrSendInfoServer(self, socket);
             } else {
                 show_debug_message("Server full");

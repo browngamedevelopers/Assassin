@@ -8,13 +8,29 @@ switch(header) {
         buffer_seek(server.sendBuffer, buffer_seek_start, 0);
         buffer_write(server.sendBuffer, buffer_u8, PKT_UPDATE);
         buffer_write(server.sendBuffer, buffer_u8, PKT_UPDATE_TURN);
+        player = buffer_read(data, buffer_s16);
+        event = buffer_read(data, buffer_s16);
         
-        var i;
-        for(i = 4; i < 8; i++) {
-            global.gameInfoServer[i] = buffer_read(data, buffer_s16);
-            buffer_write(server.sendBuffer, buffer_s16, global.gameInfoServer[i]);
+        buffer_write(server.sendBuffer, buffer_s16, event);
+        
+        if(event == 0) {
+            posx = buffer_read(data, buffer_s16);
+            posy = buffer_read(data, buffer_s16);
+            if(player) {
+                global.gameInfoServer[4] = posx;
+                global.gameInfoServer[5] = posy;
+            } else {
+                global.gameInfoServer[6] = posx;
+                global.gameInfoServer[7] = posy;
+            }
+            buffer_write(server.sendBuffer, buffer_s16, posx);
+            buffer_write(server.sendBuffer, buffer_s16, posy);
+        } else if(event == 2) {
+            clickx = buffer_read(data, buffer_s16);
+            clicky = buffer_read(data, buffer_s16);
+            buffer_write(server.sendBuffer, buffer_s16, clickx);
+            buffer_write(server.sendBuffer, buffer_s16, clicky);
         }
-        buffer_write(server.sendBuffer, buffer_s16, buffer_read(data, buffer_s16));
         
         for(i = 0; i < ds_list_size(clients); i++) {
             var sock = ds_list_find_value(clients, i);
