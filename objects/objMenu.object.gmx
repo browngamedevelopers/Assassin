@@ -32,6 +32,8 @@ global.port = 8002;
 global.isServer = false;
 global.requestNames = ds_list_create();
 
+audio_play_sound(snd_Game, 0, true);
+
 textBoxName = instance_create(room_width / 4, room_height / 4, objTextbox);
 textBoxip = instance_create(3 * room_width / 4, room_height / 4, objTextbox);
 
