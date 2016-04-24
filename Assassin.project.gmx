@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_Game</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprNet</sprite>
     <sprite>sprites\sprCastle</sprite>
@@ -50,6 +52,7 @@
     <object>objects\objTurnCounter</object>
     <object>objects\objFootprint</object>
     <object>objects\objNetAnimation</object>
+    <object>objects\objViewFollow</object>
     <object>objects\objCastle</object>
   </objects>
   <rooms name="rooms">
