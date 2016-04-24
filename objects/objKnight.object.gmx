@@ -64,13 +64,11 @@ if(!global.messenger) {
             <kind>1</kind>
             <string>///End Turn
 
-with(objFootprint) {
-    visible = false;
-    event_user(0);
-}    
-
 turnnum -= 1;
 if(turnnum == 0){
+    with(objTurnCounter) {
+        event_user(0);
+    }
     turnnum = KNIGHT_TURNS;
     scrSendTurnSwitch();
 }else {

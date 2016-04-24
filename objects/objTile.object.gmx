@@ -52,9 +52,6 @@ depth = -y + room_height;
             <kind>1</kind>
             <string>if(canmove &amp;&amp; !global.messenger){
 
-    with(objTurnCounter) {
-        event_user(0);
-    }
     with(objHighlight){
         instance_destroy();
     }
@@ -97,9 +94,6 @@ depth = -y + room_height;
             <kind>1</kind>
             <string>if(canmove){
 
-    with(objTurnCounter) {
-        event_user(0);
-    }
     with(objHighlight){
         instance_destroy();
     }
@@ -114,6 +108,9 @@ depth = -y + room_height;
         objMessenger.alarm[0] = 60;
         scrSendTurn(0, 0, 0);
     }else {
+        with(objFootprint) {
+            visible = false;
+        }
         if(x == objKnight.x &amp;&amp; y == objKnight.y){ 
             //footprint packet
             var footprint;

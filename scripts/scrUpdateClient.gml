@@ -91,13 +91,6 @@ switch(header) {
     case PKT_UPDATE_TURN:
         event = buffer_read(buffer, buffer_s16);
         
-        with(objTurnCounter) {
-            event_user(0);
-        }
-        with(objFootprint) {
-            event_user(0);
-        }
-        
         if(global.messenger) {
             switch(event) {
                 case 0: //Move
@@ -133,6 +126,14 @@ switch(header) {
                 break;
             }
         } else {
+        
+            with(objTurnCounter) {
+                event_user(0);
+            }
+            with(objFootprint) {
+                visible = false;
+                event_user(0);
+            }
             //Move
             objMessenger.visible = false;
             objMessenger.x = buffer_read(buffer, buffer_s16);
@@ -150,9 +151,16 @@ switch(header) {
     break;
     case PKT_UPDATE_TURNSWITCH:
         //Tell surrounding tiles
+        
         var myposx = 0;
         var myposy = 0;
-        if(global.messenger){
+        if(global.messenger){    
+            with(objTurnCounter) {
+                event_user(0);
+            }
+            with(objFootprint) {
+                event_user(0);
+            }
             myposx = objMessenger.x;
             myposy = objMessenger.y;
         }else {
