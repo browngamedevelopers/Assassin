@@ -50,6 +50,7 @@
     <object>objects\objTurnCounter</object>
     <object>objects\objFootprint</object>
     <object>objects\objNetAnimation</object>
+    <object>objects\objViewFollow</object>
     <object>objects\objCastle</object>
   </objects>
   <rooms name="rooms">
