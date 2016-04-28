@@ -10,6 +10,7 @@
   <sprites name="sprites">
     <sprite>sprites\sprNet</sprite>
     <sprite>sprites\sprCastle</sprite>
+    <sprite>sprites\sprLetter</sprite>
     <sprite>sprites\sprTileHighlight</sprite>
     <sprite>sprites\sprTextbox</sprite>
     <sprite>sprites\sprButton</sprite>
@@ -18,9 +19,13 @@
     <sprite>sprites\sprFoosteps</sprite>
     <sprite>sprites\sprTile</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bgMenu</background>
+    <background>background\bgMenu2</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scrRequestPlayer.gml</script>
     <script>scripts\scrInitServer.gml</script>
     <script>scripts\scrInitClient.gml</script>
     <script>scripts\scrSendInfoServer.gml</script>
@@ -41,9 +46,17 @@
     </objects>
     <objects name="Menu">
       <object>objects\objMenu</object>
+      <object>objects\objLetter</object>
+      <object>objects\objMenuLetter</object>
+      <object>objects\objConnectLetter</object>
+      <object>objects\objHost</object>
+      <object>objects\objBack</object>
+      <object>objects\objHostTextbox</object>
+      <object>objects\objIPTextbox</object>
+      <object>objects\objLanServers</object>
+      <object>objects\objRequestPlayer</object>
+      <object>objects\objPlayerNameTextbox</object>
       <object>objects\objWaiting</object>
-      <object>objects\objTextbox</object>
-      <object>objects\objButton</object>
     </objects>
     <object>objects\objTile</object>
     <object>objects\objHighlight</object>
@@ -57,6 +70,10 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>
+    <room>rooms\rmHost</room>
+    <room>rooms\rmConnect</room>
+    <room>rooms\rmOptions</room>
+    <room>rooms\rmRequestPlayer</room>
     <room>rooms\rmWaiting</room>
     <room>rooms\rmGame</room>
   </rooms>

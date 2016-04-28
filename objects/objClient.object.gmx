@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>client_socket = network_create_socket(network_socket_tcp);
+            <string>network_set_config(network_config_connect_timeout, 4000);
+client_socket = network_create_socket(network_socket_tcp);
 connection = network_connect(client_socket, global.serverip, global.port);
 
 if(connection == 0) {
@@ -36,22 +37,10 @@ if(connection == 0) {
     players = ds_map_create();
     localPlayerids = ds_list_create();
     
-    if(ds_list_size(global.requestNames) &gt; 0) {
-        show_debug_message("Requesting player(s)...");
-        var i;
-        for(i = 0; i &lt; ds_list_size(global.requestNames); i++) {
-            buffer_seek(buffer, buffer_seek_start, 0);
-            buffer_write(buffer, buffer_u8, PKT_PLAYER_REQUEST);
-            buffer_write(buffer, buffer_string, ds_list_find_value(global.requestNames, i));
-            network_send_packet(client_socket, buffer, buffer_tell(buffer));
-        }
-    } else {
-        show_debug_message("Spectating");
-    }
     scrInitClient();
 } else {
-    instance_destroy();
-    room_goto(rmMenu);
+    show_message("Could not connect to: " + global.serverip);
+    game_restart();
 }
 </string>
           </argument>
@@ -183,7 +172,6 @@ if(client_socket == eventid){
           <argument>
             <kind>1</kind>
             <string>network_destroy(client_socket);
-buffer_delete(buffer);
 </string>
           </argument>
         </arguments>

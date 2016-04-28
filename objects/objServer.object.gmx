@@ -36,6 +36,7 @@ if(server_socket &lt; 0) {
 show_debug_message("Server created");
 buffer = buffer_create(1024, buffer_grow, 1);
 sendBuffer = buffer_create(1024, buffer_grow, 1);
+broadcastBuffer = buffer_create(1024, buffer_grow, 1);
 
 clients = ds_list_create();
 clientPlayers = ds_map_create();
@@ -48,6 +49,37 @@ for(i = 0; i &lt; global.maxPlayers; i++){
 }
 
 scrInitServer(self);
+alarm[1] = 60;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Lan
+buffer_seek(broadcastBuffer, buffer_seek_start, 0);
+buffer_write(broadcastBuffer, buffer_string, global.serverName);
+buffer_write(broadcastBuffer, buffer_s16, ds_map_size(players));
+buffer_write(broadcastBuffer, buffer_s16, global.maxPlayers);
+network_send_broadcast(server_socket, 8000, broadcastBuffer, buffer_tell(broadcastBuffer));
+
+alarm[1]=60;
 </string>
           </argument>
         </arguments>
@@ -177,6 +209,7 @@ if(server_socket == eventid) {
     var socket = ds_map_find_value(async_load, "id");
     buffer_seek(data, buffer_seek_start, 0);
     header = buffer_read(data, buffer_u8);
+    
     switch(header) {
         case PKT_PING:
             time = buffer_read(data, buffer_u32);
@@ -205,19 +238,6 @@ if(server_socket == eventid) {
                 buffer_write(buffer, buffer_s16, pid);
                 buffer_write(buffer, buffer_string, playerName);
                 network_send_packet(socket, buffer, buffer_tell(buffer));
-                
-                buffer_seek(buffer, buffer_seek_start, 0);
-                buffer_write(buffer, buffer_u8, PKT_PLAYER_ADD);
-                buffer_write(buffer, buffer_s16, pid);
-                buffer_write(buffer, buffer_string, playerName);
-                
-                var i;
-                for(i = 0; i &lt; ds_list_size(clients); i++) {
-                    var sock = ds_map_find_value(clients, i);
-                    if(sock != socket) {
-                        network_send_packet(sock, buffer, buffer_tell(buffer));
-                    }
-                }
                 
                 scrSendInfoServer(self, socket);
             } else {
