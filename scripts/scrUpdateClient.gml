@@ -71,9 +71,9 @@ switch(header) {
             tile[4] = instance_position(myposx + sprite_get_width(sprTile),myposy,objTile);
             tile[5] = instance_position(myposx + sprite_get_width(sprTile)/2,myposy+3/4*sprite_get_height(sprTile),objTile);
             tile[6] = instance_position(myposx - sprite_get_width(sprTile)/2,myposy+3/4*sprite_get_height(sprTile),objTile);
-            for(i = 1; i < 7; i++) {
+            for(i = 1; i < 7; i++) {                
                 if(tile[i] != noone && tile[i].image_index != 4 && tile[i].image_index != 5){
-                //show_debug_message("yep!");
+
                     tile[i].canmove = true;
                     instance_create(tile[i].x, tile[i].y, objHighlight);
                 }else {
@@ -175,7 +175,7 @@ switch(header) {
         tile[5] = instance_position(myposx + sprite_get_width(sprTile)/2,myposy+3/4*sprite_get_height(sprTile),objTile);
         tile[6] = instance_position(myposx - sprite_get_width(sprTile)/2,myposy+3/4*sprite_get_height(sprTile),objTile);
         for(i = 1; i < 7; i++) {
-            if(tile[i] != noone){
+            if(tile[i] != noone && tile[i].image_index != 4 && tile[i].image_index != 5){
                 //show_debug_message("yep!");
                     tile[i].canmove = true;
                     instance_create(tile[i].x, tile[i].y, objHighlight);
