@@ -64,9 +64,6 @@ if(global.messenger) {
             <kind>1</kind>
             <string>///End Turn
 
-with(objTurnCounter) {
-    event_user(0);
-}
 with(objFootprint) {
     event_user(0);
 }

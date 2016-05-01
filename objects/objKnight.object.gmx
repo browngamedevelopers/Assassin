@@ -66,9 +66,6 @@ if(!global.messenger) {
 
 turnnum -= 1;
 if(turnnum == 0){
-    with(objTurnCounter) {
-        event_user(0);
-    }
     turnnum = KNIGHT_TURNS;
     scrSendTurnSwitch();
 }else {
