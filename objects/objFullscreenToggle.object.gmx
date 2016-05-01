@@ -73,8 +73,12 @@ window_set_fullscreen(self.fullscreen);
         <arguments>
           <argument>
             <kind>1</kind>
+<<<<<<< HEAD
             <string>draw_set_font(MenuFont);
 if (self.fullscreen) {
+=======
+            <string>if (self.fullscreen) {
+>>>>>>> 95af1e0c7628c4a430c859c1e78e1ca794818652
     draw_text(self.x, self.y - 20, "Windowed");
 } else {
     draw_text(self.x, self.y - 20, "Fullscreen");
