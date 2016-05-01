@@ -8,6 +8,9 @@
     <sound>sound\snd_Game</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\sprknightdownleft</sprite>
+    <sprite>sprites\sprknightleft</sprite>
+    <sprite>sprites\sprknightupleft</sprite>
     <sprite>sprites\sprNet</sprite>
     <sprite>sprites\sprCastle</sprite>
     <sprite>sprites\sprLetter</sprite>
