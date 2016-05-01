@@ -96,7 +96,7 @@
     <constant name="PKT_UPDATE_TURNSWITCH">4</constant>
     <constant name="TURN_LIMIT">30</constant>
     <constant name="PLAYER_SPEED">5</constant>
-    <constant name="INIT_MESSENGER_TURNS">3</constant>
+    <constant name="INIT_MESSENGER_TURNS">2</constant>
     <constant name="MESSENGER_TURNS">1</constant>
     <constant name="KNIGHT_TURNS">2</constant>
   </constants>
