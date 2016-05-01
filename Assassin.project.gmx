@@ -15,6 +15,7 @@
     <sprite>sprites\sprTextbox</sprite>
     <sprite>sprites\sprButton</sprite>
     <sprite>sprites\sprKnight</sprite>
+    <sprite>sprites\sprButtonArea</sprite>
     <sprite>sprites\sprMessenger</sprite>
     <sprite>sprites\sprFoosteps</sprite>
     <sprite>sprites\sprTile</sprite>
@@ -53,6 +54,9 @@
       <object>objects\objBack</object>
       <object>objects\objHostTextbox</object>
       <object>objects\objIPTextbox</object>
+      <object>objects\objSettings</object>
+      <object>objects\objVolumeSlider</object>
+      <object>objects\objFullscreenToggle</object>
       <object>objects\objLanServers</object>
       <object>objects\objRequestPlayer</object>
       <object>objects\objPlayerNameTextbox</object>

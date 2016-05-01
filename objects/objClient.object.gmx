@@ -40,7 +40,7 @@ if(connection == 0) {
     scrInitClient();
 } else {
     show_message("Could not connect to: " + global.serverip);
-    game_restart();
+    instance_destroy();
 }
 </string>
           </argument>
