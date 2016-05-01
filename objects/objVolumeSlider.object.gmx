@@ -49,7 +49,7 @@ audio_master_gain(self.volume);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mouse_check_button(mb_left) &amp;&amp; mouse_y &lt; self.y + 100 &amp;&amp; mouse_x &gt; self.y - 30) {
+            <string>if (mouse_check_button(mb_left) &amp;&amp; mouse_y &lt; self.y + 100 &amp;&amp; mouse_y &gt; self.y - 30) {
     self.volume = clamp((mouse_x - (self.x - 250)) / 500, 0, 1);
     audio_master_gain(self.volume);
 }

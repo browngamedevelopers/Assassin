@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>maxCharacters = 10;
+            <string>maxCharacters = 16;
 font = fntTextbox;
 text = "127.0.0.1";
 clickable = false;

@@ -155,9 +155,6 @@ switch(header) {
         var myposx = 0;
         var myposy = 0;
         if(global.messenger){    
-            with(objTurnCounter) {
-                event_user(0);
-            }
             with(objFootprint) {
                 event_user(0);
             }

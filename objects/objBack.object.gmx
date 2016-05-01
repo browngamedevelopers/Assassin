@@ -27,10 +27,12 @@
             <kind>1</kind>
             <string>with(objServer) {
     network_destroy(server_socket);
+    instance_destroy();
 }
 
 with(objClient) {
     network_destroy(client_socket);
+    instance_destroy();
 }
 
 room_goto(rmMenu);

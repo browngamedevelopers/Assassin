@@ -77,7 +77,7 @@ buffer_seek(broadcastBuffer, buffer_seek_start, 0);
 buffer_write(broadcastBuffer, buffer_string, global.serverName);
 buffer_write(broadcastBuffer, buffer_s16, ds_map_size(players));
 buffer_write(broadcastBuffer, buffer_s16, global.maxPlayers);
-network_send_broadcast(server_socket, 8000, broadcastBuffer, buffer_tell(broadcastBuffer));
+network_send_broadcast(server_socket, global.port, broadcastBuffer, buffer_tell(broadcastBuffer));
 
 alarm[1]=60;
 </string>

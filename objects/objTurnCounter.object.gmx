@@ -75,7 +75,7 @@ if(turns == TURN_LIMIT) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(x, y, "Turn: " + string(turns));
+            <string>draw_text(x, y, "Turn: " + string(turns) + " out of " + string(TURN_LIMIT));
 </string>
           </argument>
         </arguments>
