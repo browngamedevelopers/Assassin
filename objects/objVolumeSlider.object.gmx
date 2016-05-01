@@ -75,7 +75,12 @@ audio_master_gain(self.volume);
         <arguments>
           <argument>
             <kind>1</kind>
+<<<<<<< HEAD
+            <string>draw_set_font(MenuFont);
+draw_text(x, y - 30, "Volume");
+=======
             <string>draw_text(x, y - 30, "Volume");
+>>>>>>> 95af1e0c7628c4a430c859c1e78e1ca794818652
 draw_line(x - 250, y + 20, x + 250, y + 20);
 draw_circle((self.x - 250) + (500 * self.volume), self.y + 20, 6, false);
 </string>

@@ -25,9 +25,38 @@
         <arguments>
           <argument>
             <kind>1</kind>
+<<<<<<< HEAD
+            <string>instance_create(room_width / 2, 240, objVolumeSlider);
+instance_create(room_width / 2, 340, objFullscreenToggle);
+instance_create(44, 36, objBack);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(room_width / 2, 40, "OPTIONS")
+=======
             <string>instance_create(room_width / 2, 340, objVolumeSlider);
 instance_create(room_width / 2, 440, objFullscreenToggle);
 instance_create(44, 724, objBack);
+>>>>>>> 95af1e0c7628c4a430c859c1e78e1ca794818652
 </string>
           </argument>
         </arguments>

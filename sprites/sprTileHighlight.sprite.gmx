@@ -2,7 +2,11 @@
 <sprite>
   <type>0</type>
   <xorig>31</xorig>
+<<<<<<< HEAD
+  <yorigin>37</yorigin>
+=======
   <yorigin>34</yorigin>
+>>>>>>> 95af1e0c7628c4a430c859c1e78e1ca794818652
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
