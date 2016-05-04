@@ -93,12 +93,9 @@ if(turnnum == 0){
         tile[6] = instance_position(x - sprite_get_width(sprTile)/2,y+3/4*sprite_get_height(sprTile),objTile);
         
         for(i = 1; i &lt; 7; i++) {
-<<<<<<< HEAD
-            if(tile[i] != noone){
-=======
+
             if(tile[i] != noone &amp;&amp; tile[i].image_index != 4 &amp;&amp; tile[i].image_index != 5
             &amp;&amp; !(tile[i].x == objKnight.x &amp;&amp; tile[i].y == objKnight.y)){
->>>>>>> 95af1e0c7628c4a430c859c1e78e1ca794818652
             //show_debug_message("yep!");
                 tile[i].canmove = true;
                 instance_create(tile[i].x, tile[i].y, objHighlight);

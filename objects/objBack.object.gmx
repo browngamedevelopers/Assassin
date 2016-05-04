@@ -29,9 +29,20 @@
     network_destroy(server_socket);
     instance_destroy();
 }
-
 with(objClient) {
     network_destroy(client_socket);
+    instance_destroy();
+}
+with(objTile) {
+    instance_destroy();
+}
+with(objHighlight) {
+    instance_destroy();
+}
+with(objMessenger) {
+    instance_destroy();
+}
+with(objKnight) {
     instance_destroy();
 }
 
@@ -41,7 +52,7 @@ room_goto(rmMenu);
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -59,15 +70,9 @@ room_goto(rmMenu);
           <argument>
             <kind>1</kind>
             <string>draw_self();
-<<<<<<< HEAD
 draw_set_font(MenuFont);
 draw_set_halign(fa_center);
-draw_text(x, y + 20, "Back");
-=======
-draw_set_font(fntTextbox);
-draw_set_halign(fa_center);
-draw_text(x, y + sprite_height / 2 + 10, "Back");
->>>>>>> 95af1e0c7628c4a430c859c1e78e1ca794818652
+draw_text(x, y + 30, "Back");
 </string>
           </argument>
         </arguments>

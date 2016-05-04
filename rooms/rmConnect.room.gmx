@@ -52,9 +52,9 @@
   </views>
   <instances>
     <instance objName="objIPTextbox" x="512" y="96" name="inst_CB2B6BA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLanServers" x="0" y="0" name="inst_F6880453" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objConnectLetter" x="344" y="96" name="inst_4D2531D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objBack" x="64" y="32" name="inst_3BDB243C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBack" x="64" y="32" name="inst_AD88D7E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objLanServers" x="0" y="0" name="inst_3182CFC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

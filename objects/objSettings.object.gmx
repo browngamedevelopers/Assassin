@@ -25,10 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-<<<<<<< HEAD
             <string>instance_create(room_width / 2, 240, objVolumeSlider);
 instance_create(room_width / 2, 340, objFullscreenToggle);
-instance_create(44, 36, objBack);
 </string>
           </argument>
         </arguments>
@@ -51,12 +49,8 @@ instance_create(44, 36, objBack);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(room_width / 2, 40, "OPTIONS")
-=======
-            <string>instance_create(room_width / 2, 340, objVolumeSlider);
-instance_create(room_width / 2, 440, objFullscreenToggle);
-instance_create(44, 724, objBack);
->>>>>>> 95af1e0c7628c4a430c859c1e78e1ca794818652
+            <string>draw_set_font(MenuFont);
+draw_text(room_width / 2, 40, "OPTIONS")
 </string>
           </argument>
         </arguments>
