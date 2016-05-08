@@ -27,19 +27,6 @@
             <kind>1</kind>
             <string>turnnum = INIT_MESSENGER_TURNS;
 image_speed = .05;
-
-name = "";
-if(global.messenger) {
-    name = ds_map_find_value(global.client.players, ds_list_find_value(global.client.localPlayerids, 0)).name;
-} else {
-    var i;
-    for(i = 0; i &lt; ds_map_size(global.client.players); i++) {
-        p = ds_map_find_value(global.client.players, i);
-        if(p != ds_map_find_value(global.client.players, ds_list_find_value(global.client.localPlayerids, 0))) {
-            //name = p.name;
-        }
-    }
-}
 </string>
           </argument>
         </arguments>
@@ -129,7 +116,14 @@ if(turnnum == 0){
             <kind>1</kind>
             <string>if(global.start &amp;&amp; visible) {
     draw_self();
-    draw_text(x, y - sprite_height / 2 - 10, name);
+    
+    draw_set_color(c_black);
+    draw_set_font(fntTextbox);
+    if(global.messenger) {
+        draw_text(x, y - sprite_height / 2 - 40, global.name);
+    } else {
+        draw_text(x, y - sprite_height / 2 - 40, global.otherName);
+    }
 }
 </string>
           </argument>

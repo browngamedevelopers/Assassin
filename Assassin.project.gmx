@@ -16,6 +16,7 @@
     <sprite>sprites\sprLetter</sprite>
     <sprite>sprites\sprTileHighlight</sprite>
     <sprite>sprites\sprTextbox</sprite>
+    <sprite>sprites\sprBanner</sprite>
     <sprite>sprites\sprButton</sprite>
     <sprite>sprites\sprKnight</sprite>
     <sprite>sprites\sprButtonArea</sprite>
@@ -30,6 +31,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scrRequestPlayer.gml</script>
+    <script>scripts\scrAddPlayer.gml</script>
     <script>scripts\scrInitServer.gml</script>
     <script>scripts\scrInitClient.gml</script>
     <script>scripts\scrSendInfoServer.gml</script>

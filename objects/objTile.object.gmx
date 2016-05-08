@@ -102,7 +102,6 @@ depth = -y + room_height;
     }
     
     if(global.messenger){
-    
         with(objTurnCounter) {
             event_user(0);
         }

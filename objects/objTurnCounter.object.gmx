@@ -77,7 +77,9 @@ if(turns == TURN_LIMIT) {
             <kind>1</kind>
             <string>draw_set_font(MenuFont);
 draw_set_halign(fa_center);
-draw_set_color(c_gray);
+draw_set_color(c_black);
+
+draw_sprite(sprBanner, 0, view_wview[view_current]/2, 30);
 draw_text(view_wview[view_current]/2, 30, "Turn: " + string(turns) + " out of " + string(TURN_LIMIT));
 </string>
           </argument>

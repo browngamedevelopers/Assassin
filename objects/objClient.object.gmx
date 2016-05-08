@@ -34,8 +34,8 @@ if(connection == 0) {
     
     buffer = buffer_create(1024, buffer_grow, 1);
     sendBuffer = buffer_create(1024, buffer_grow, 1);
+    localPlayers = ds_map_create();
     players = ds_map_create();
-    localPlayerids = ds_list_create();
     
     scrInitClient();
 } else {
@@ -111,8 +111,7 @@ if(client_socket == eventid){
             player.pid = pid;
             player.name = playerName;
             
-            ds_list_add(localPlayerids, pid);
-            ds_map_add(players, pid, player);
+            ds_map_add(localPlayers, pid, player);
             show_debug_message("Player: " + playerName + " accepted");
         break;
         case PKT_PLAYER_REQUEST_DENY:
@@ -125,8 +124,11 @@ if(client_socket == eventid){
             player = instance_create(0, 0, objNetworkPlayer);
             player.pid = pid;
             player.name = playerName;
+            
             ds_map_add(players, pid, player);
             show_debug_message("Player: " + playerName + " connected");
+            
+            scrAddPlayer(playerName);
         break;
         case PKT_PING:
             time = buffer_read(data, buffer_u32);
