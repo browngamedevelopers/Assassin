@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>lan_socket = network_create_server(network_socket_udp, global.port, 10);
+            <string>//lan_socket = network_create_server(network_socket_udp, global.port, 10);
+lan_socket = network_create_socket_ext(network_socket_udp, global.port);
 
 global.serverips = ds_list_create();
 global.serverList = ds_list_create();

@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(objServer) {
+            <string>global.isServer = false;
+global.server = -1;
+global.client = -1;
+
+with(objServer) {
     network_destroy(server_socket);
     instance_destroy();
 }
